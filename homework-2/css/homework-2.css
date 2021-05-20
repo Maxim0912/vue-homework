@@ -1,0 +1,20 @@
+.tab-menu {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tab-menu.active {
+    background: orangered;
+}
+
+.zero {
+    background: red;
+}
+
+.not-many {
+    background: yellow;
+}
+
+.many {
+    background: green;
+}

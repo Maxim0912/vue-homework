@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework-2</title>
+    <link rel="stylesheet" href="css/homework-2.css">
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="js/vue.global.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <span class="tab-menu" v-bind:class="{active: currentTab === tab}" 
+        v-for="tab in tabs" 
+        v-on:click="currentTab = tab">
+        {{tab.toUpperCase()}}
+    </span>
+    <div v-show="currentTab === tabs[0]">
+        <h2>Все товары</h2>
+        <div v-for="good in allGoods" v-bind:class="addClassToGoods(good)">
+            <h3>{{good.title.toUpperCase()}}</h3>
+            <p>Цена: {{good.price}}</p>
+            <p>Количество: {{good.count}}</p>
+            <div>
+                <button v-bind:disabled="!good.count"
+                    @click="addToMyCart(good)">                   
+                    {{good.count ? "Добавить в корзину" : "Нет в наличии"}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div v-if="currentTab === tabs[1]">
+        <h2 v-if="!myGoods.length">В корзине нет покупок</h2>
+        <div v-else>
+            <h2>Мои покупки</h2>
+            <div v-for="(good, i) in sortedMyGoods" :key="good.title">
+                <h2>{{good.title.toUpperCase()}}</h2>
+                <button @click="deleteFromMyCart(good, i)">
+                    Удалить из списка
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script src="js/homework-2.js"></script>
+</body>
+</html>
