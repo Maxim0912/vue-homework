@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Карусель</title>
+    <link rel="stylesheet" href="css/homework-4-4.css">
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="js/vue.global.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="wrapper">
+        <div class="carousel" :style="{'margin-left': -(200 * currentJokeIndex) + 'px'}">
+            <div v-for="joke in allJokes">
+                <img v-bind:src="joke" height="200">
+            </div>
+        </div>  
+    <button @click="prevSlide">Prev</button>
+    <button @click="nextSlide">Next</button>     
+    </div>
+    
+</div>
+
+
+<script src="js/homework-4-4.js"></script>
+
+</body>
+</html>

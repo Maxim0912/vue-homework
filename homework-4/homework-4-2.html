@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/homework-4-2.css">
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="js/vue.global.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="card" v-for="(good, i) in goods" 
+            @click="chooseCard(good, i)"
+            v-bind:class="{active: choosenGoods.includes(good)}">
+        <h4>{{ good.name }}</h4>
+        <p>{{ good.price }} руб</p>
+    </div>
+    <div>
+        <h4>К оплате:</h4>
+        <p>{{countTotal}} руб</p>
+    </div>
+</div>
+<script src="js/homework-4-2.js"></script>
+
+</body>
+</html>

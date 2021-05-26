@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework-4</title>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="js/vue.global.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="search">
+    <div v-for="item in searchArticles">
+        <h3>{{item.title}}</h3>
+        <img :src="item.img">
+    </div>
+</div>
+<script src="js/homework-4.js"></script>
+
+</body>
+</html>
